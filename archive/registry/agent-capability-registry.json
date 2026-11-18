@@ -1,0 +1,130 @@
+{
+  "registry_version": "1.0.0",
+  "authority": "Human-governed; registry describes proposed least-privilege roles and does not grant runtime credentials.",
+  "default_mode": "READ_ONLY",
+  "agents": [
+    {
+      "id": "observer",
+      "category": 1,
+      "mission": "Inventory repositories, email metadata, and workflow evidence.",
+      "allowed": [
+        "read_gmail_metadata",
+        "read_github_repository",
+        "read_pull_requests",
+        "read_workflow_runs",
+        "emit_observation"
+      ],
+      "denied": [
+        "write_github",
+        "send_email",
+        "admit_evidence"
+      ]
+    },
+    {
+      "id": "researcher",
+      "category": 2,
+      "mission": "Find and retrieve scholarly and official technical sources.",
+      "allowed": [
+        "search_scholarly_sources",
+        "fetch_public_sources",
+        "record_citations"
+      ],
+      "denied": [
+        "treat_preprint_as_peer_reviewed",
+        "authorize_changes"
+      ]
+    },
+    {
+      "id": "reasoner",
+      "category": 3,
+      "mission": "Build evidence-linked execution plans and risk assessments.",
+      "allowed": [
+        "classify_evidence",
+        "build_dependency_graph",
+        "recommend_next_step"
+      ],
+      "denied": [
+        "execute_mutations",
+        "change_verdict_without_evidence"
+      ]
+    },
+    {
+      "id": "executor",
+      "category": 4,
+      "mission": "Prepare isolated candidate artifacts after authorization.",
+      "allowed": [
+        "prepare_patch_in_isolated_branch_after_explicit_authorization"
+      ],
+      "denied": [
+        "write_default_branch",
+        "merge",
+        "change_permissions",
+        "send_email"
+      ]
+    },
+    {
+      "id": "verifier",
+      "category": 5,
+      "mission": "Run tests and compare claims against observations.",
+      "allowed": [
+        "run_validation",
+        "verify_digest",
+        "emit_current_stale_failed_unknown"
+      ],
+      "denied": [
+        "self_approve_patch",
+        "suppress_failed_evidence"
+      ]
+    },
+    {
+      "id": "recorder",
+      "category": 6,
+      "mission": "Record provenance, diffs, citations, and operational reports.",
+      "allowed": [
+        "append_archive_event",
+        "record_digest",
+        "generate_report"
+      ],
+      "denied": [
+        "rewrite_history",
+        "publish_private_email_content"
+      ]
+    },
+    {
+      "id": "reflector",
+      "category": 7,
+      "mission": "Assess drift, recovery, dependency independence, and continuity.",
+      "allowed": [
+        "analyze_failure_patterns",
+        "recommend_recovery",
+        "run_authorized_restore_drill"
+      ],
+      "denied": [
+        "disable_security_controls",
+        "claim_unmeasured_resilience"
+      ]
+    },
+    {
+      "id": "governor",
+      "category": 8,
+      "mission": "Enforce policy, trust boundaries, and explicit authorization.",
+      "allowed": [
+        "hold_or_release_workflow_stage",
+        "validate_authorization_record",
+        "emit_governance_decision"
+      ],
+      "denied": [
+        "self_authorize",
+        "grant_capabilities_by_inference",
+        "auto_merge"
+      ]
+    }
+  ],
+  "global_invariants": [
+    "READ_ONLY by default",
+    "No secret values in logs or archive",
+    "No public storage of raw Gmail content or private message IDs",
+    "Human authorization required for every repository mutation or outbound email",
+    "External integrations remain outside TWGT Core until governed"
+  ]
+}
