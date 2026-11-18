@@ -35,7 +35,7 @@
       "observed_at": "2026-11-18T15:55:39Z",
       "summary": "Continuous Integration failed: Repository Governance and Prisma migration validation succeeded; Validate Repository failed with two annotations.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/TWGT-/actions/runs/44340894957",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Retrieve job annotations and failing step logs; classify root cause before proposing a fix."
     },
@@ -45,7 +45,7 @@
       "observed_at": "2026-11-18T14:59:14Z",
       "summary": "harvest workflow failed with three annotations; run duration 19 seconds.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/twgt-bridge/actions/runs/44330229007",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Retrieve annotations and logs; determine whether failure is configuration, contract, or runtime."
     },
@@ -55,7 +55,7 @@
       "observed_at": "2026-11-18T07:40:42Z",
       "summary": "Real DeepSeek API end-to-end workflow failed with four annotations; run duration 36 seconds.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/deepseek-harness/actions/runs/44260627435",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Inspect failure annotations and distinguish external provider failure from harness regression."
     },
@@ -65,7 +65,7 @@
       "observed_at": "2026-10-30T09:41:13Z",
       "summary": "Merge Gates run: CI, secret scan, and SBOM vulnerability scan succeeded; Repository Governance and All Gates failed.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/TWGT-/actions/runs/41034944640",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Inspect three governance annotations and two all-gates annotations; preserve successful security checks as separate evidence."
     },
@@ -75,7 +75,7 @@
       "observed_at": "2026-10-30T09:39:49Z",
       "summary": "Candidate Verify failed with three annotations for strict pinning and live OPA enforcement change.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/TWGT-/actions/runs/41034944693",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Retrieve exact verifier annotations and candidate SHA; do not infer the cause from the email subject."
     },
@@ -85,7 +85,7 @@
       "observed_at": "2026-10-30T09:31:32Z",
       "summary": "CI workflow run ended in 0 seconds and reported no jobs were run.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/twgt-schema-gate/actions/runs/41034021675",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Inspect workflow syntax, event filters, permissions, and skipped-job conditions."
     },
@@ -95,7 +95,7 @@
       "observed_at": "2026-09-14T09:47:07Z",
       "summary": "PR #2 review comment held the CVE repair at commit 55aba6f: preview was green, but repository CI, dependency-review, and code-scanning evidence were absent; exact advisory closure and regression suite were requested.",
       "evidence_url": "https://github.com/lifestyle3nergy-web/agentnotebooklm/pull/2",
-      "evidence_class": "OBSERVED",
+      "evidence_class": "CLAIM",
       "status": "HELD",
       "next_action": "Re-check current PR head, workflow status, advisory fix, and regression tests before any readiness decision."
     }
