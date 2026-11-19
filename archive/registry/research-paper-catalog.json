@@ -1,0 +1,221 @@
+{
+  "catalog_id": "twgt.engineering-research",
+  "version": "1.0.0",
+  "harvested_at": "2026-11-19T00:00:00Z",
+  "scope": [
+    "repository-level code understanding",
+    "agentic software engineering",
+    "code review constraints",
+    "software supply-chain security",
+    "repository memory",
+    "testing and evaluation"
+  ],
+  "records": [
+    {
+      "asset_id": "twgt:research:arxiv.2607.11111",
+      "title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution",
+      "authors": [
+        "Haotian Lin",
+        "Silin Chen",
+        "Xiaodong Gu",
+        "Yuling Shi",
+        "Chengxi Pan",
+        "Jiaqi Ge",
+        "Mengfan Li",
+        "Jianghong Huang",
+        "Mengchieh Chuang",
+        "Beijun Shen",
+        "Haibing Guan"
+      ],
+      "year": 2026,
+      "identifier": "arXiv:2607.11111",
+      "doi": "10.48550/arXiv.2607.11111",
+      "source_url": "https://arxiv.org/abs/2607.11111",
+      "full_text_url": "https://app.cochat.ai/from/chatgpt/fetch/papers/10.48550/arxiv.2607.11111",
+      "publication_status": "PREPRINT",
+      "doi_registry_check": "VERIFIED_DATACITE",
+      "full_text_status": "READ",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "repository knowledge acquisition",
+        "evidence-grounded QA",
+        "separation of understanding and mutation"
+      ],
+      "summary": "ACQUIRE uses a Questioner and Answerer to acquire structured repository knowledge before a Resolver generates a patch; authors report up to +4.4 percentage points Pass@1 on SWE-bench Verified.",
+      "limitations": [
+        "Author-reported benchmark result; not independently replicated by TWGT."
+      ]
+    },
+    {
+      "asset_id": "twgt:research:arxiv.2507.19942",
+      "title": "Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving",
+      "authors": [
+        "Yue Pan",
+        "Zimin Chen",
+        "Siyu Lu",
+        "Zhaoyang Chu",
+        "Xiang Li",
+        "Han Li",
+        "Yang Feng",
+        "Claire Le Goues",
+        "Federica Sarro",
+        "Martin Monperrus",
+        "He Ye"
+      ],
+      "year": 2025,
+      "identifier": "arXiv:2507.19942",
+      "version_observed": "v2 (2026-02-07)",
+      "doi": "10.48550/arXiv.2507.19942",
+      "source_url": "https://arxiv.org/abs/2507.19942",
+      "full_text_url": "https://app.cochat.ai/from/chatgpt/fetch/papers/10.48550/arxiv.2507.19942",
+      "publication_status": "ARXIV_VERSION_PUBLICATION_RECONCILIATION_REQUIRED",
+      "doi_registry_check": "VERIFIED_DATACITE_ARXIV_IDENTIFIER",
+      "full_text_status": "READ",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "repository knowledge graph",
+        "working memory",
+        "long-horizon navigation"
+      ],
+      "summary": "Prometheus combines a repository knowledge graph with working memory to preserve explored context across multi-agent issue resolution.",
+      "limitations": [
+        "Publisher record and arXiv version need reconciliation; PDF text contains a placeholder publisher DOI."
+      ]
+    },
+    {
+      "asset_id": "twgt:research:acl.2026.findings.837",
+      "title": "SWE-QA-Pro: A Representative Benchmark and Scalable Training Recipe for Repository-Level Code Understanding",
+      "authors": [
+        "Songcheng Cai",
+        "Zhiheng Lyu",
+        "Yuansheng Ni",
+        "Xiangchao Chen",
+        "Baichuan Zhou",
+        "Shenzhe Zhu",
+        "Yi Lu",
+        "Haozhe Wang",
+        "Chi Ruan",
+        "Benjamin Schneider",
+        "Weixu Zhang",
+        "Xiang Li",
+        "Andy Zheng",
+        "Yuyu Zhang",
+        "Ping Nie",
+        "Wenhu Chen"
+      ],
+      "year": 2026,
+      "venue": "Findings of ACL 2026",
+      "pages": "16958-16999",
+      "doi": "10.18653/v1/2026.findings-acl.837",
+      "source_url": "https://aclanthology.org/2026.findings-acl.837/",
+      "full_text_url": "https://app.cochat.ai/from/chatgpt/fetch/papers/10.18653/v1/2026.findings-acl.837",
+      "publication_status": "PEER_REVIEWED_CONFERENCE_FINDINGS",
+      "doi_registry_check": "VERIFIED_CROSSREF",
+      "full_text_status": "READ",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "long-tail repository benchmark",
+        "executable environments",
+        "tool-required evaluation"
+      ],
+      "summary": "SWE-QA-Pro constructs a diverse repository QA benchmark using executable environments and filters out questions solvable by direct recall.",
+      "limitations": [
+        "Benchmark conclusions depend on benchmark construction and tested models."
+      ]
+    },
+    {
+      "asset_id": "twgt:research:arxiv.2406.10109",
+      "title": "SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties",
+      "authors": [
+        "Chinenye Okafor",
+        "Taylor R. Schorlemmer",
+        "Santiago Torres-Arias",
+        "James C. Davis"
+      ],
+      "year": 2024,
+      "identifier": "arXiv:2406.10109",
+      "doi": "10.48550/arXiv.2406.10109",
+      "source_url": "https://arxiv.org/abs/2406.10109",
+      "full_text_url": "https://app.cochat.ai/from/chatgpt/fetch/papers/10.48550/arxiv.2406.10109",
+      "publication_status": "PREPRINT",
+      "doi_registry_check": "VERIFIED_DATACITE",
+      "full_text_status": "READ",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "software supply chain security",
+        "transparency",
+        "validity",
+        "separation"
+      ],
+      "summary": "Systematizes software supply-chain patterns around transparency, validity and separation.",
+      "limitations": [
+        "Research synthesis; not an implementation certification."
+      ]
+    },
+    {
+      "asset_id": "twgt:research:arxiv.2609.04167",
+      "title": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+      "authors": [
+        "Xin He",
+        "Yanlin Wang",
+        "Mingwei Liu",
+        "Jiachi Chen",
+        "Hongyu Zhang",
+        "Guanbin Li"
+      ],
+      "year": 2026,
+      "identifier": "arXiv:2609.04167",
+      "doi": "10.48550/arXiv.2609.04167",
+      "source_url": "https://arxiv.org/abs/2609.04167",
+      "publication_status": "PREPRINT",
+      "doi_registry_check": "VERIFIED_DATACITE",
+      "full_text_status": "ABSTRACT_REVIEWED",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "pull request review constraints",
+        "functional and policy acceptance gates"
+      ],
+      "reported_result": "303 tasks from 75 Python repositories; 221 of 644 functionally passing repairs failed review constraints (as reported in abstract).",
+      "limitations": [
+        "Abstract-level review; reported benchmark result not independently replicated."
+      ]
+    },
+    {
+      "asset_id": "twgt:research:arxiv.2605.08366",
+      "title": "SWE Atlas: Benchmarking Coding Agents Beyond Issue Resolution",
+      "authors": [
+        "Mohit Raghavendra",
+        "Soham Dan",
+        "Miguel Romero Calvo",
+        "Yannis Yiming He",
+        "Johannes Mols",
+        "Gautam Anand",
+        "Cole McCollum",
+        "Edgar Arakelyan",
+        "Vijay G. Bharadwaj",
+        "Andrew Park",
+        "MohammadHossein Rezaei",
+        "Bing Liu",
+        "Brad Kenstler",
+        "Yunzhong He"
+      ],
+      "year": 2026,
+      "identifier": "arXiv:2605.08366",
+      "doi": "10.48550/arXiv.2605.08366",
+      "source_url": "https://arxiv.org/abs/2605.08366",
+      "publication_status": "PREPRINT",
+      "doi_registry_check": "VERIFIED_DATACITE",
+      "full_text_status": "ABSTRACT_REVIEWED",
+      "evidence_class": "CLAIM",
+      "relevance": [
+        "codebase QA",
+        "test writing",
+        "refactoring"
+      ],
+      "limitations": [
+        "Abstract-level review; benchmark does not directly predict production reliability."
+      ]
+    }
+  ],
+  "verification_policy": "DOI registry verification confirms bibliographic identity only. It does not validate paper claims, benchmark reproducibility, peer-review status, or the accuracy of extracted summaries."
+}
