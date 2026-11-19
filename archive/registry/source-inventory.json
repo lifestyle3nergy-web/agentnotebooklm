@@ -1,0 +1,105 @@
+{
+  "inventory_id": "twgt.connected-source-inventory",
+  "version": "1.0.0",
+  "status": "seeded_unverified",
+  "entries": [
+    {
+      "source_id": "SRC-GITHUB-ORG",
+      "provider": "github",
+      "source_kind": "repository_host",
+      "scope": "lifestyle3nergy-web repositories",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "read_only_api",
+      "data_classes": [
+        "repository",
+        "source_file",
+        "pull_request",
+        "review",
+        "workflow_run",
+        "commit",
+        "release",
+        "schema",
+        "workflow"
+      ],
+      "authority": "GitHub remains authoritative for repository and review state.",
+      "verification": "OBSERVED_IN_PRIOR_RECONNAISSANCE"
+    },
+    {
+      "source_id": "SRC-GMAIL-GIT-REVIEWS",
+      "provider": "gmail",
+      "source_kind": "mailbox_label",
+      "scope": "git reviews label",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "read_only_oauth_required_for_service",
+      "data_classes": [
+        "message_metadata",
+        "review_notification",
+        "repository_reference",
+        "workflow_reference"
+      ],
+      "authority": "Gmail remains authoritative for mailbox messages; public archive must not store private message/thread IDs or raw email.",
+      "verification": "PARTIAL_SCAN_ONLY"
+    },
+    {
+      "source_id": "SRC-INTERNET-ARCHIVE",
+      "provider": "internet_archive",
+      "source_kind": "digital_archive",
+      "scope": "Public item metadata and approved preservation packages",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "read_only_public_metadata_first",
+      "data_classes": [
+        "archive_item",
+        "file_manifest",
+        "preservation_event",
+        "rights_metadata"
+      ],
+      "authority": "Internet Archive remains authoritative for its item metadata and task state.",
+      "verification": "DOCUMENTATION_REVIEWED"
+    },
+    {
+      "source_id": "SRC-COCHAT-RESEARCH",
+      "provider": "cochat",
+      "source_kind": "scholarly_research",
+      "scope": "CrossRef, Semantic Scholar, arXiv, PubMed, OpenAlex and related scholarly metadata",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "research_lookup_and_citation_verification",
+      "data_classes": [
+        "research_paper",
+        "citation",
+        "author",
+        "venue",
+        "dataset",
+        "benchmark"
+      ],
+      "authority": "Publisher, DOI registration agency and repository records remain authoritative for bibliographic and version facts.",
+      "verification": "TOOL_USED_IN_PRIOR_RESEARCH"
+    },
+    {
+      "source_id": "SRC-TWGT-REPOS",
+      "provider": "github",
+      "source_kind": "engineering_repository_federation",
+      "scope": "TWGT repositories and subprojects",
+      "connector_state": "PARTIAL",
+      "ingestion_mode": "read_only_inventory",
+      "data_classes": [
+        "repository",
+        "adr",
+        "schema",
+        "policy",
+        "agent",
+        "workflow",
+        "evidence",
+        "runtime_observation"
+      ],
+      "authority": "Each repository owns its files, contracts and release history.",
+      "verification": "REPOSITORY_SET_PARTIALLY_OBSERVED"
+    }
+  ],
+  "inventory_rules": [
+    "Do not infer connected status from a URL alone.",
+    "Record connector scopes and last successful observation.",
+    "Never store credential values or secret-bearing environment output.",
+    "Every new source requires owner, purpose, permitted operations, data classes, jurisdiction, retention and offboarding plan.",
+    "A source can be catalogued even when disconnected; mark its observation and connector state accurately."
+  ]
+}
