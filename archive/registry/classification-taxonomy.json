@@ -1,0 +1,153 @@
+{
+  "taxonomy_id": "twgt.engineering-knowledge",
+  "version": "1.0.0",
+  "status": "proposed",
+  "primary_disciplines": [
+    {
+      "id": "CSSE",
+      "name": "Computer Science and Software Engineering",
+      "subdomains": [
+        "algorithms-and-complexity",
+        "programming-languages",
+        "software-architecture",
+        "distributed-systems",
+        "databases-and-storage",
+        "operating-systems-and-runtime",
+        "networking-and-protocols",
+        "cybersecurity-engineering",
+        "devops-and-platform-engineering",
+        "testing-and-verification",
+        "formal-methods",
+        "developer-tools-and-libraries",
+        "ai-agents-and-orchestration",
+        "models-and-ml-systems",
+        "human-computer-interaction"
+      ]
+    },
+    {
+      "id": "DSIE",
+      "name": "Data Science and Information Engineering",
+      "subdomains": [
+        "data-engineering",
+        "metadata-management",
+        "data-catalogues-and-inventories",
+        "data-quality",
+        "data-lineage-and-provenance",
+        "knowledge-graphs-and-ontologies",
+        "information-retrieval",
+        "semantic-search-and-embeddings",
+        "analytics-and-observability",
+        "research-methods-and-benchmarks",
+        "digital-preservation",
+        "interoperability-and-metadata-standards"
+      ]
+    },
+    {
+      "id": "GRRE",
+      "name": "Governance Risk and Regulatory Engineering",
+      "subdomains": [
+        "data-governance",
+        "privacy-and-personal-information",
+        "security-and-access-control",
+        "records-and-retention",
+        "copyright-and-licensing",
+        "regulatory-applicability",
+        "risk-management",
+        "ai-governance",
+        "software-supply-chain-governance",
+        "audit-and-assurance",
+        "policy-and-control-design",
+        "incident-and-resilience-management"
+      ]
+    }
+  ],
+  "asset_types": [
+    "repository",
+    "source_file",
+    "directory",
+    "dataset",
+    "database",
+    "table",
+    "view",
+    "schema",
+    "api",
+    "service",
+    "tool",
+    "skill",
+    "library",
+    "agent",
+    "workflow",
+    "model",
+    "prompt_template",
+    "benchmark",
+    "research_paper",
+    "standard",
+    "regulation",
+    "policy",
+    "contract",
+    "adr",
+    "requirement",
+    "test_suite",
+    "build_artifact",
+    "runtime_observation",
+    "evidence_record",
+    "archive_item",
+    "preservation_package",
+    "dashboard",
+    "report"
+  ],
+  "security_classification": [
+    "PUBLIC",
+    "INTERNAL",
+    "CONFIDENTIAL",
+    "RESTRICTED",
+    "UNKNOWN"
+  ],
+  "evidence_classes": [
+    "FACT",
+    "CLAIM",
+    "INFERENCE",
+    "HYPOTHESIS",
+    "FORECAST",
+    "ADVOCACY",
+    "UNKNOWN"
+  ],
+  "verification_states": [
+    "CURRENT",
+    "STALE",
+    "FAILED",
+    "UNKNOWN"
+  ],
+  "rights_states": [
+    "LICENSED",
+    "PERMISSION_RECORDED",
+    "PUBLIC_DOMAIN_CONFIRMED",
+    "RESTRICTED",
+    "UNKNOWN",
+    "PROHIBITED"
+  ],
+  "lifecycle_states": [
+    "DISCOVERED",
+    "PREFLIGHTED",
+    "CAPTURED",
+    "NORMALIZED",
+    "DEDUPLICATED",
+    "CATALOGUED",
+    "ENRICHED",
+    "CLASSIFIED",
+    "HELD",
+    "QUARANTINED",
+    "GOVERNED",
+    "ADMITTED",
+    "OBSERVED",
+    "STALE",
+    "REVIEW_REQUIRED",
+    "VERIFIED",
+    "REJECTED",
+    "SUPERSEDED",
+    "RETIRED",
+    "RETRYABLE_FAILURE",
+    "PERMANENT_FAILURE"
+  ],
+  "rule": "An asset may have one primary discipline and multiple secondary tags. Security, rights, evidence and lifecycle states are independent axes and must never be inferred from discipline."
+}

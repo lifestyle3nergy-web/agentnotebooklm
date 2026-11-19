@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twgt.org.nz/schemas/archive-event.schema.json",
+  "title": "TWGT Archive Event",
+  "description": "Versioned, provenance-preserving event envelope for asynchronous engineering review intake.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "idempotency_key",
+    "source",
+    "event_type",
+    "occurred_at",
+    "observed_at",
+    "evidence_class",
+    "status",
+    "payload_digest",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 16,
+      "maxLength": 256
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "source_ref"
+      ],
+      "properties": {
+        "provider": {
+          "enum": [
+            "gmail",
+            "github",
+            "manual",
+            "research"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "format": "uri"
+        },
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 128
+        }
+      }
+    },
+    "event_type": {
+      "enum": [
+        "review_notification",
+        "workflow_failure",
+        "pull_request_review",
+        "security_advisory",
+        "research_paper",
+        "archive_replay",
+        "state_transition"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_class": {
+      "enum": [
+        "FACT",
+        "CLAIM",
+        "INFERENCE",
+        "HYPOTHESIS",
+        "FORECAST",
+        "ADVOCACY",
+        "UNKNOWN"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DISCOVERED",
+        "CAPTURED",
+        "NORMALIZED",
+        "DEDUPLICATED",
+        "CLASSIFIED",
+        "CORROBORATED",
+        "ARCHIVED",
+        "REVIEWED",
+        "VERIFIED",
+        "HELD",
+        "REJECTED",
+        "RETRYABLE_FAILURE",
+        "PERMANENT_FAILURE"
+      ]
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "payload_uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collector",
+        "collector_version",
+        "transform_version"
+      ],
+      "properties": {
+        "collector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "collector_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transform_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_message_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{7,64}$"
+        },
+        "corroborating_uris": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "state_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "at",
+          "actor"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        }
+      }
+    },
+    "retention_class": {
+      "enum": [
+        "operational",
+        "security",
+        "research",
+        "legal_hold"
+      ]
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

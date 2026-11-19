@@ -1,0 +1,89 @@
+{
+  "catalog_id": "twgt.knowledge-source-seeds",
+  "version": "1.0.0",
+  "status": "discovery_seed_not_fully_ingested",
+  "observed_at": "2026-11-19T00:00:00Z",
+  "wikipedia": [
+    {
+      "asset_id": "twgt:wikipedia:data-lineage",
+      "title": "Data lineage",
+      "url": "https://en.wikipedia.org/wiki/Data_lineage",
+      "discipline": "DSIE",
+      "purpose": "Conceptual grounding for provenance, lineage and transformation history.",
+      "capture_status": "DISCOVERED_NOT_REVISION_PINNED",
+      "authority": "Secondary reference; follow primary research and standards."
+    },
+    {
+      "asset_id": "twgt:wikipedia:software-supply-chain",
+      "title": "Software supply chain",
+      "url": "https://en.wikipedia.org/wiki/Software_supply_chain",
+      "discipline": "CSSE",
+      "purpose": "Terminology and conceptual overview for dependency and artifact supply-chain governance.",
+      "capture_status": "DISCOVERED_NOT_REVISION_PINNED",
+      "authority": "Secondary reference; corroborate against NIST, SLSA, in-toto, Sigstore and primary research."
+    }
+  ],
+  "deepwiki": [
+    {
+      "asset_id": "twgt:deepwiki:postgres",
+      "repository": "postgres/postgres",
+      "url": "https://deepwiki.com/postgres/postgres/",
+      "topic": "Database architecture, process model, transaction processing, WAL, query pipeline and system catalogs.",
+      "last_indexed_observation": "page search indicated approximately four months before 2026-11-19",
+      "capture_status": "DISCOVERED_INDEX_AGE_APPROXIMATE",
+      "authority": "Upstream PostgreSQL source repository and pinned commit."
+    },
+    {
+      "asset_id": "twgt:deepwiki:redis",
+      "repository": "redis/redis",
+      "url": "https://deepwiki.com/redis/redis",
+      "topic": "Server internals, networking, data structures, persistence and event loop.",
+      "last_indexed_observation": "page search indicated approximately two weeks before 2026-11-19",
+      "capture_status": "DISCOVERED_INDEX_AGE_APPROXIMATE",
+      "authority": "Upstream Redis source repository and pinned commit."
+    },
+    {
+      "asset_id": "twgt:deepwiki:temporal",
+      "repository": "temporalio/temporal",
+      "url": "https://deepwiki.com/temporalio/temporal",
+      "topic": "Durable workflow architecture, frontend/history/matching/worker services, persistence and recovery.",
+      "last_indexed_observation": "2026-08-11",
+      "capture_status": "DISCOVERED_INDEX_DATE_OBSERVED",
+      "authority": "Upstream Temporal source repository and pinned commit."
+    },
+    {
+      "asset_id": "twgt:deepwiki:openlineage",
+      "repository": "OpenLineage/OpenLineage",
+      "url": "https://deepwiki.com/OpenLineage/OpenLineage",
+      "topic": "Run/job/dataset model, lineage facets, clients and integrations.",
+      "last_indexed_observation": "2025-04-24",
+      "capture_status": "DISCOVERED_STALE_INDEX",
+      "authority": "Upstream OpenLineage specification and source repository."
+    }
+  ],
+  "arxiv_labs": [
+    {
+      "asset_id": "twgt:arxiv:labs",
+      "title": "arXiv Labs",
+      "url": "https://info.arxiv.org/labs/",
+      "purpose": "Discover experimental tools and research-facing projects around the arXiv ecosystem.",
+      "capture_status": "DISCOVERED_NOT_API_CONNECTED",
+      "authority": "Official arXiv project pages and API records."
+    },
+    {
+      "asset_id": "twgt:arxiv:api",
+      "title": "arXiv API User Manual",
+      "url": "https://info.arxiv.org/help/api/user-manual.html",
+      "purpose": "Version-aware metadata search and incremental discovery using search_query, id_list, start and max_results.",
+      "capture_status": "DOCUMENTATION_REVIEWED",
+      "authority": "Official arXiv API documentation."
+    }
+  ],
+  "discovery_notes": [
+    "These are selected seed assets, not a claim that every relevant Wikipedia page, DeepWiki repository or arXiv paper has been harvested.",
+    "DeepWiki indexed content must be tied to an upstream repository commit and corroborated against the source files it cites.",
+    "Wikipedia pages must be pinned to a MediaWiki revision ID and timestamp before use in reproducible evidence.",
+    "arXiv works must be stored by identifier and version; DOI verification and peer-review status are independent fields.",
+    "Continue discovery from the engineering-library catalogue and the three-discipline taxonomy; avoid unrestricted bulk copying."
+  ]
+}

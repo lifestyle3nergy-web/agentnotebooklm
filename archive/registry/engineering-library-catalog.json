@@ -1,0 +1,615 @@
+{
+  "catalog_id": "twgt.engineering-library-catalog",
+  "version": "1.0.0",
+  "status": "seeded_reference_catalogue",
+  "harvested_at": "2026-11-19T00:00:00Z",
+  "bookmark_provenance_note": "Some items were directly supplied in prior user messages; others were named in prior research discussions. These are candidate references, not verified browser bookmarks. No authenticated browser bookmark export has been inspected.",
+  "disciplines": [
+    "CSSE",
+    "DSIE",
+    "GRRE"
+  ],
+  "entries": [
+    {
+      "asset_id": "twgt:library:postgresql",
+      "name": "PostgreSQL",
+      "category": "relational_database",
+      "discipline": "CSSE",
+      "url": "https://www.postgresql.org/docs/",
+      "install_reference": "https://www.postgresql.org/download/linux/ubuntu/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Canonical relational metadata, transactional outbox, registry constraints, audit records.",
+      "review_checks": [
+        "supported_version",
+        "extension_policy",
+        "backup_restore",
+        "role_privileges",
+        "migration_rollback"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:redis",
+      "name": "Redis",
+      "category": "in_memory_data_store",
+      "discipline": "CSSE",
+      "url": "https://redis.io/docs/latest/",
+      "provenance": "previously_named_reference",
+      "purpose": "Cache, rate limiting, ephemeral coordination; not the sole durable job store.",
+      "review_checks": [
+        "persistence_mode",
+        "memory_budget",
+        "eviction_policy",
+        "ACL",
+        "failover"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:duckdb",
+      "name": "DuckDB",
+      "category": "analytical_database",
+      "discipline": "DSIE",
+      "url": "https://duckdb.org/docs/",
+      "roadmap": "https://duckdb.org/roadmap",
+      "provenance": "user_supplied_reference",
+      "purpose": "Local analytical queries, metadata profiling and offline analytics.",
+      "review_checks": [
+        "file_format_compatibility",
+        "concurrency",
+        "snapshot_strategy",
+        "extension_trust"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:motherduck",
+      "name": "MotherDuck",
+      "category": "managed_analytics_platform",
+      "discipline": "DSIE",
+      "url": "https://motherduck.com/",
+      "reference": "https://motherduck.com/blog/announcing-ducklake-1-0-on-motherduck/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Optional analytical platform and DuckLake reference; cloud dependency must remain replaceable.",
+      "review_checks": [
+        "data_residency",
+        "exportability",
+        "cost",
+        "provider_lock_in"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:opentelemetry",
+      "name": "OpenTelemetry",
+      "category": "observability_standard_and_tools",
+      "discipline": "DSIE",
+      "url": "https://opentelemetry.io/docs/",
+      "collector": "https://opentelemetry.io/docs/collector/",
+      "otlp": "https://opentelemetry.io/docs/specs/otlp/",
+      "provenance": "previously_named_reference",
+      "purpose": "Vendor-neutral traces, metrics and logs for connectors, workers and lifecycle events.",
+      "review_checks": [
+        "semantic_conventions",
+        "sampling",
+        "PII_redaction",
+        "collector_health",
+        "export_fallback"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:elastic",
+      "name": "Elastic",
+      "category": "search_and_observability_platform",
+      "discipline": "DSIE",
+      "url": "https://www.elastic.co/guide/index.html",
+      "provenance": "user_supplied_reference",
+      "purpose": "Search and observability option; compare with simpler Postgres/vector and open-source alternatives.",
+      "review_checks": [
+        "license",
+        "cluster_operations",
+        "index_retention",
+        "security",
+        "exportability"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:temporal",
+      "name": "Temporal",
+      "category": "durable_workflow_engine",
+      "discipline": "CSSE",
+      "url": "https://docs.temporal.io/",
+      "provenance": "previously_named_reference",
+      "purpose": "Long-running retryable ingestion and recovery workflows.",
+      "review_checks": [
+        "self_hosting",
+        "workflow_versioning",
+        "history_retention",
+        "worker_recovery",
+        "operational_cost"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:jenkins",
+      "name": "Jenkins",
+      "category": "ci_cd_automation",
+      "discipline": "CSSE",
+      "url": "https://www.jenkins.io/doc/",
+      "provenance": "previously_named_reference",
+      "purpose": "Repository discovery, CI and controlled automation.",
+      "review_checks": [
+        "plugin_supply_chain",
+        "credential_scope",
+        "controller_backup",
+        "pipeline_as_code"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:keycloak",
+      "name": "Keycloak",
+      "category": "identity_and_access_management",
+      "discipline": "GRRE",
+      "url": "https://www.keycloak.org/documentation",
+      "provenance": "previously_named_reference",
+      "purpose": "Federated identity, OAuth/OIDC and role-based access for research interface.",
+      "review_checks": [
+        "oidc_configuration",
+        "realm_export",
+        "mfa",
+        "token_lifetime",
+        "audit_events"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:openlineage",
+      "name": "OpenLineage",
+      "category": "data_lineage_standard",
+      "discipline": "DSIE",
+      "url": "https://openlineage.io/docs/",
+      "spec": "https://openlineage.io/docs/spec/facets/",
+      "provenance": "previously_named_reference",
+      "purpose": "Run/job/dataset lineage events and extensible metadata facets.",
+      "review_checks": [
+        "namespace_stability",
+        "event_schema_version",
+        "facet_compatibility",
+        "producer_coverage"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:incus",
+      "name": "Incus",
+      "category": "system_container_and_vm_manager",
+      "discipline": "CSSE",
+      "url": "https://linuxcontainers.org/incus/docs/main/",
+      "provenance": "previously_named_reference",
+      "purpose": "Local/offline execution isolation and portable service environments.",
+      "review_checks": [
+        "host_kernel_requirements",
+        "image_provenance",
+        "network_policy",
+        "snapshot_restore"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:supabase",
+      "name": "Supabase",
+      "category": "backend_platform",
+      "discipline": "CSSE",
+      "url": "https://supabase.com/docs",
+      "provenance": "user_supplied_reference",
+      "purpose": "Optional Postgres/Auth/Storage/Edge integration; retain export and local-hosting path.",
+      "review_checks": [
+        "RLS",
+        "auth_policy",
+        "backup_export",
+        "edge_function_secrets",
+        "region"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:hono",
+      "name": "Hono",
+      "category": "web_framework",
+      "discipline": "CSSE",
+      "url": "https://hono.dev/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Lightweight API and edge adapter framework.",
+      "review_checks": [
+        "runtime_compatibility",
+        "middleware_security",
+        "version_support"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:nitro",
+      "name": "Nitro",
+      "category": "server_runtime_framework",
+      "discipline": "CSSE",
+      "url": "https://nitro.build/docs",
+      "provenance": "user_supplied_reference",
+      "purpose": "Portable server/runtime deployment framework.",
+      "review_checks": [
+        "adapter_maturity",
+        "runtime_support",
+        "build_reproducibility"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:modal",
+      "name": "Modal Sandboxes",
+      "category": "isolated_compute",
+      "discipline": "CSSE",
+      "url": "https://modal.com/products/sandboxes",
+      "docs": "https://modal.com/docs/guide/notebooks/FindCUDAToolkit.ht",
+      "provenance": "user_supplied_reference",
+      "purpose": "Isolated execution for untrusted repository analysis and reproducible experiments.",
+      "review_checks": [
+        "network_egress",
+        "ephemeral_storage",
+        "resource_limits",
+        "data_retention",
+        "pricing"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:mcp",
+      "name": "Model Context Protocol",
+      "category": "tool_integration_protocol",
+      "discipline": "CSSE",
+      "url": "https://modelcontextprotocol.io/docs/develop/build-server",
+      "provenance": "user_supplied_reference",
+      "purpose": "Standardized boundary for connected tools and source adapters.",
+      "review_checks": [
+        "tool_authorization",
+        "schema_validation",
+        "origin_trust",
+        "secret_isolation",
+        "auditability"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:github",
+      "name": "GitHub",
+      "category": "source_control_and_collaboration",
+      "discipline": "CSSE",
+      "url": "https://docs.github.com/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Repository source of truth, pull requests, reviews, commits and workflow evidence.",
+      "review_checks": [
+        "least_privilege",
+        "branch_protection",
+        "review_rules",
+        "workflow_permissions",
+        "artifact_retention"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:gitlab",
+      "name": "GitLab",
+      "category": "source_control_and_devops",
+      "discipline": "CSSE",
+      "url": "https://docs.gitlab.com/",
+      "provenance": "previously_named_reference",
+      "purpose": "Alternative source control and CI/CD provider for portability.",
+      "review_checks": [
+        "api_scopes",
+        "runner_isolation",
+        "pipeline_permissions",
+        "exportability"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:packagist",
+      "name": "Packagist",
+      "category": "package_registry",
+      "discipline": "CSSE",
+      "url": "https://packagist.org/",
+      "provenance": "previously_named_reference",
+      "purpose": "PHP package metadata and dependency ecosystem research.",
+      "review_checks": [
+        "package_ownership",
+        "release_history",
+        "license",
+        "abandonment",
+        "dependency_advisories"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:mediawiki",
+      "name": "MediaWiki",
+      "category": "knowledge_management_platform",
+      "discipline": "DSIE",
+      "url": "https://www.mediawiki.org/wiki/Documentation",
+      "libraries": "https://www.mediawiki.org/wiki/Manual:External_libraries",
+      "development": "https://www.mediawiki.org/wiki/Manual:Developing_libraries",
+      "provenance": "previously_named_reference",
+      "purpose": "Structured technical knowledge, revisioned documentation and extension ecosystem.",
+      "review_checks": [
+        "revision_history",
+        "extension_compatibility",
+        "license",
+        "backup_restore"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:noosfero",
+      "name": "Noosfero",
+      "category": "collaborative_knowledge_platform",
+      "discipline": "DSIE",
+      "url": "http://noosfero.org",
+      "provenance": "user_supplied_reference",
+      "purpose": "FOSS community and knowledge collaboration reference.",
+      "review_checks": [
+        "project_activity",
+        "license",
+        "security_posture",
+        "deployment_docs"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:arxiv",
+      "name": "arXiv",
+      "category": "scholarly_preprint_repository",
+      "discipline": "DSIE",
+      "url": "https://arxiv.org/",
+      "api_docs": "https://info.arxiv.org/help/api/user-manual.html",
+      "labs": "https://info.arxiv.org/labs/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Computer science and engineering research discovery, version tracking and paper metadata.",
+      "review_checks": [
+        "arxiv_version",
+        "doi_match",
+        "journal_reference",
+        "withdrawn_or_replaced_status",
+        "license"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:internet-archive",
+      "name": "Internet Archive",
+      "category": "digital_preservation",
+      "discipline": "DSIE",
+      "url": "https://archive.org/",
+      "metadata_api": "https://internetarchive.readthedocs.io/en/stable/metadata.html",
+      "provenance": "previously_named_reference",
+      "purpose": "External preservation metadata and approved public archival workflows.",
+      "review_checks": [
+        "rights",
+        "privacy",
+        "identifier",
+        "fixity",
+        "task_status",
+        "takedown_process"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:wayback",
+      "name": "Wayback Machine",
+      "category": "web_archival_reference",
+      "discipline": "DSIE",
+      "url": "https://web.archive.org/",
+      "provenance": "previously_named_reference",
+      "purpose": "Historical web evidence and temporal comparison.",
+      "review_checks": [
+        "capture_timestamp",
+        "original_url",
+        "archive_availability",
+        "context"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:memento",
+      "name": "Memento Time Travel",
+      "category": "web_archival_interoperability",
+      "discipline": "DSIE",
+      "url": "https://mementoweb.org/",
+      "provenance": "previously_named_reference",
+      "purpose": "Time-based access to archived web resources.",
+      "review_checks": [
+        "datetime_negotiation",
+        "archive_source",
+        "timestamp_accuracy"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:elastic-domain-tools",
+      "name": "Elastic DomainTools",
+      "category": "domain_intelligence",
+      "discipline": "GRRE",
+      "url": "https://www.elastic.co/",
+      "provenance": "previously_named_reference",
+      "purpose": "Domain intelligence reference; confirm product identity and actual integration before use.",
+      "review_checks": [
+        "product_identity",
+        "data_license",
+        "privacy",
+        "api_scope"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:mojli",
+      "name": "Mojli",
+      "category": "service_reference",
+      "discipline": "CSSE",
+      "url": "https://mojli.life/#contactSlack",
+      "provenance": "user_supplied_reference",
+      "purpose": "User-provided integration/contact reference; function and API capability not yet assessed.",
+      "review_checks": [
+        "service_identity",
+        "documentation",
+        "terms",
+        "data_handling"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:lovable",
+      "name": "Lovable",
+      "category": "software_development_platform",
+      "discipline": "CSSE",
+      "url": "https://lovable.dev/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Prototype and application development platform reference.",
+      "review_checks": [
+        "code_export",
+        "git_sync",
+        "secrets",
+        "hosting_dependency",
+        "license"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:colab",
+      "name": "Google Colab",
+      "category": "notebook_compute",
+      "discipline": "CSSE",
+      "url": "https://colab.research.google.com/",
+      "repository_reference": "https://github.com/colab",
+      "provenance": "user_supplied_reference",
+      "purpose": "Notebook-based experiments and reproducible computational research.",
+      "review_checks": [
+        "runtime_reproducibility",
+        "data_retention",
+        "compute_quota",
+        "exportability"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:kali",
+      "name": "Kali Linux Security Tools",
+      "category": "security_testing_toolkit",
+      "discipline": "GRRE",
+      "url": "https://www.kali.org/tools/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Authorized defensive security testing and evidence collection only.",
+      "tool_references": [
+        "https://www.kali.org/tools/nmap/",
+        "https://www.kali.org/tools/wireshark/",
+        "https://www.kali.org/tools/metasploitmcp/",
+        "https://www.kali.org/tools/aircrack-ng/",
+        "https://www.kali.org/tools/hashcat/",
+        "https://www.kali.org/tools/skipfish/",
+        "https://www.kali.org/tools/foremost/",
+        "https://www.kali.org/tools/sqlmap/",
+        "https://www.kali.org/tools/hping3/",
+        "https://www.kali.org/tools/john/"
+      ],
+      "review_checks": [
+        "authorized_scope",
+        "tool_version",
+        "test_environment_isolation",
+        "evidence_handling"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:twgt-github-org",
+      "name": "Lifestyle3nergy TWGT GitHub organization",
+      "category": "engineering_repository_federation",
+      "discipline": "CSSE",
+      "url": "https://github.com/lifestyle3nergy-web",
+      "provenance": "user_confirmed_source_of_truth",
+      "purpose": "Canonical organization namespace for TWGT engineering repositories.",
+      "review_checks": [
+        "repository_inventory",
+        "default_branch",
+        "commit_sha",
+        "license",
+        "workflow_state"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:twgt-engineering-intelligence",
+      "name": "Engineering Intelligence",
+      "category": "engineering_governance_knowledge",
+      "discipline": "GRRE",
+      "url": "https://lifestyle3nergy-web.github.io/engineering-intelligence/",
+      "provenance": "user_supplied_reference",
+      "purpose": "Governance, evaluation and research knowledge directory.",
+      "review_checks": [
+        "source_citations",
+        "adr_registry",
+        "evidence_freshness",
+        "ownership"
+      ]
+    },
+    {
+      "asset_id": "twgt:library:twgt-relationship-types",
+      "name": "twgt-relationship-types",
+      "category": "relationship_contracts",
+      "discipline": "CSSE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-relationship-types",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Canonical relationship contracts."
+    },
+    {
+      "asset_id": "twgt:library:twgt-schema-gate",
+      "name": "twgt-schema-gate",
+      "category": "schema_validation_and_admission_contracts",
+      "discipline": "GRRE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-schema-gate",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Schema, evidence and admission contract authority."
+    },
+    {
+      "asset_id": "twgt:library:twgt-bridge",
+      "name": "twgt-bridge",
+      "category": "evidence_collection",
+      "discipline": "DSIE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-bridge",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Read-only evidence collection and verdicts."
+    },
+    {
+      "asset_id": "twgt:library:twgt-persist-service",
+      "name": "twgt-persist-service",
+      "category": "persistence_service",
+      "discipline": "CSSE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-persist-service",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Governed persistence pipeline."
+    },
+    {
+      "asset_id": "twgt:library:twgt-knowledge",
+      "name": "twgt-knowledge",
+      "category": "institutional_knowledge_memory",
+      "discipline": "DSIE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-knowledge",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Verified institutional memory and lifecycle."
+    },
+    {
+      "asset_id": "twgt:library:twgt-device-node",
+      "name": "twgt-device-node",
+      "category": "edge_ingestion_and_extraction",
+      "discipline": "CSSE",
+      "repository": "https://github.com/lifestyle3nergy-web/twgt-device-node",
+      "provenance": "user_confirmed_repository",
+      "purpose": "Device-side ingestion and knowledge extraction."
+    },
+    {
+      "asset_id": "twgt:library:twgt-core",
+      "name": "TWGT-",
+      "category": "platform_control_nucleus",
+      "discipline": "CSSE",
+      "repository": "https://github.com/lifestyle3nergy-web/TWGT-",
+      "provenance": "user_confirmed_repository",
+      "purpose": "TWGT platform control nucleus."
+    }
+  ],
+  "unresolved_named_repositories": [
+    "scientific-agent-skills",
+    "socket-mcp",
+    "firefox-devtools-mcp",
+    "opentelemetry-injector",
+    "deepseek-harness",
+    "OpenDeepWiki",
+    "jsoncanvas",
+    "Kai",
+    "grok-build",
+    "command-output",
+    "odai"
+  ],
+  "rules": [
+    "Do not call a mentioned URL a confirmed browser bookmark.",
+    "Do not infer license, active maintenance or production readiness from a project name.",
+    "Resolve every library to canonical upstream repository, documentation, release feed and license before recommending adoption.",
+    "Record the observation timestamp and source commit/release for every update.",
+    "Keep security-sensitive tools limited to authorized defensive environments."
+  ]
+}
