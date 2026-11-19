@@ -88,3 +88,20 @@ Do not optimize for message volume or number of agent actions. Optimize for corr
 - Exactly-once delivery across Gmail, GitHub, and a database is not assumed. Use at-least-once delivery plus idempotent processing.
 - A green functional test does not prove compliance with repository review constraints; preserve both test and review evidence.
 - The 2050 continuity horizon is a design objective, not a current service-level guarantee.
+
+## Federated engineering research and library catalogues
+
+The current research/discovery seed is intentionally metadata-first and read-only:
+
+- `governance/PROGRAM.md` — archive mission, three disciplines, boundaries and governance controls.
+- `architecture/metadata-lifecycle.md` — staging bands, lifecycle gates, quality and asynchronous processing.
+- `architecture/federated-research-ingestion.md` — Wikipedia, DeepWiki, arXiv and engineering-library adapters.
+- `architecture/storage-and-search.md` — relational catalogue, object evidence, vector index and research interface.
+- `registry/source-inventory.json` — source-system registry and connector states.
+- `registry/knowledge-source-seeds.json` — selected Wikipedia, DeepWiki and arXiv starting sources.
+- `registry/engineering-library-catalog.json` — 39 seeded engineering libraries, standards and TWGT repositories.
+- `registry/research-paper-catalog.json` — six selected research papers with DOI registry checks and evidence limitations.
+- `research/ENGINEERING-RESEARCH-HARVEST-2026-11.md` — research synthesis and TWGT implementation mapping.
+- `policies/preflight-classification.md`, `policies/regulatory-performance-reviews.md`, `policies/output-audit-trails.md` — governance controls.
+
+**Harvest status:** catalogue and research seed records have been committed to this feature branch. This does not mean that continuous Wikipedia, DeepWiki, arXiv or package-registry ingestion workers are deployed. The source adapters, durable queue, scheduler, access controls and operational monitoring remain implementation work. See `architecture/federated-research-ingestion.md`.
