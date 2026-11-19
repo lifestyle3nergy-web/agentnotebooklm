@@ -1,0 +1,114 @@
+{
+  "catalogue_id": "twgt.regulatory-and-standards",
+  "version": "1.0.0",
+  "status": "initial_reference_catalogue_not_legal_advice",
+  "entries": [
+    {
+      "id": "NZ-PRIVACY-ACT-2020",
+      "name": "New Zealand Privacy Act 2020",
+      "kind": "legislation",
+      "jurisdiction": "NZ",
+      "applicability": "POTENTIAL",
+      "scope_test": "Assess whether the operator is an agency handling personal information and identify collection, use, storage, disclosure, access, correction, breach and overseas-transfer duties.",
+      "source": "https://www.legislation.govt.nz/act/public/2020/0031/latest/LMS23226.html",
+      "owner_role": "privacy_steward",
+      "review_frequency_days": 180
+    },
+    {
+      "id": "NZ-PUBLIC-RECORDS-ACT-2005",
+      "name": "New Zealand Public Records Act 2005",
+      "kind": "legislation",
+      "jurisdiction": "NZ",
+      "applicability": "POTENTIAL",
+      "scope_test": "Assess whether the organization or activity is within the Act's public office or local authority scope, including contracted functions and records obligations.",
+      "source": "https://www.legislation.govt.nz/act/public/2005/40/en/latest/",
+      "owner_role": "records_steward",
+      "review_frequency_days": 365
+    },
+    {
+      "id": "NZ-COPYRIGHT-ACT-1994",
+      "name": "New Zealand Copyright Act 1994",
+      "kind": "legislation",
+      "jurisdiction": "NZ",
+      "applicability": "POTENTIAL",
+      "scope_test": "Assess rights in source materials, copying, adaptation, preservation, communication, licensing and any applicable exceptions before ingesting or publishing content.",
+      "source": "https://www.legislation.govt.nz/act/public/1994/143/en/latest/",
+      "owner_role": "rights_steward",
+      "review_frequency_days": 365
+    },
+    {
+      "id": "EU-GDPR-2016-679",
+      "name": "EU General Data Protection Regulation",
+      "kind": "legislation",
+      "jurisdiction": "EU/EEA_and_extraterritorial_scope",
+      "applicability": "POTENTIAL",
+      "scope_test": "Assess territorial and material scope, controller/processor roles, data-subject location, processing purpose and transfer context.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2016/679/",
+      "owner_role": "privacy_steward",
+      "review_frequency_days": 180
+    },
+    {
+      "id": "EU-AI-ACT-2024-1689",
+      "name": "EU Artificial Intelligence Act as amended",
+      "kind": "legislation",
+      "jurisdiction": "EU_and_extraterritorial_scope",
+      "applicability": "POTENTIAL",
+      "scope_test": "Assess provider/deployer role, placing on market or use in scope, system purpose, risk category, relevant transitional dates and current consolidated text including amendments.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27",
+      "owner_role": "ai_governance_steward",
+      "review_frequency_days": 90
+    },
+    {
+      "id": "NIST-SP-800-218",
+      "name": "NIST Secure Software Development Framework v1.1",
+      "kind": "guidance",
+      "jurisdiction": "US_origin_voluntary_unless_adopted_or_contractually_required",
+      "applicability": "REFERENCE",
+      "scope_test": "Map secure development practices to software lifecycle controls; identify contractual or policy adoption separately.",
+      "source": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "owner_role": "software_assurance_steward",
+      "review_frequency_days": 365
+    },
+    {
+      "id": "W3C-PROV-O",
+      "name": "W3C PROV-O",
+      "kind": "technical_recommendation",
+      "jurisdiction": "international",
+      "applicability": "REFERENCE",
+      "scope_test": "Use as an interoperable provenance model for entities, activities, agents and derivations; it is not legislation.",
+      "source": "https://www.w3.org/TR/prov-o/",
+      "owner_role": "metadata_architect",
+      "review_frequency_days": 365
+    },
+    {
+      "id": "LOC-PREMIS-3",
+      "name": "PREMIS Data Dictionary v3.0",
+      "kind": "preservation_standard",
+      "jurisdiction": "international",
+      "applicability": "REFERENCE",
+      "scope_test": "Map digital preservation objects, events, agents and rights; define local conformance profile.",
+      "source": "https://www.loc.gov/standards/premis/v3/",
+      "owner_role": "preservation_steward",
+      "review_frequency_days": 365
+    },
+    {
+      "id": "RFC-8493-BAGIT",
+      "name": "RFC 8493 BagIt File Packaging Format",
+      "kind": "internet_standard",
+      "jurisdiction": "international",
+      "applicability": "REFERENCE",
+      "scope_test": "Use for packaging payloads with tag files and manifests for transfer and fixity verification.",
+      "source": "https://www.rfc-editor.org/rfc/rfc8493.html",
+      "owner_role": "preservation_steward",
+      "review_frequency_days": 365
+    }
+  ],
+  "required_applicability_values": [
+    "APPLICABLE",
+    "NOT_APPLICABLE_WITH_REASON",
+    "POTENTIAL",
+    "UNASSESSED",
+    "REFERENCE"
+  ],
+  "mandatory_disclaimer": "This catalogue is a research and control-mapping index. It does not determine legal applicability or certify compliance. Obtain qualified legal/privacy review before relying on a determination."
+}
