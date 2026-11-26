@@ -1,0 +1,417 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twgt.org.nz/schemas/metadata-asset.schema.json",
+  "title": "TWGT Metadata Asset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "asset_id",
+    "source",
+    "asset_type",
+    "title",
+    "discipline",
+    "classification",
+    "lifecycle_state",
+    "evidence_class",
+    "provenance",
+    "observed_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^twgt:[a-z0-9][a-z0-9._:-]{5,180}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "provider",
+        "source_ref"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 2
+        },
+        "source_native_id": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_version": {
+          "type": "string"
+        },
+        "connector_version": {
+          "type": "string"
+        }
+      }
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "repository",
+        "source_file",
+        "directory",
+        "dataset",
+        "database",
+        "table",
+        "view",
+        "schema",
+        "api",
+        "service",
+        "tool",
+        "skill",
+        "library",
+        "agent",
+        "workflow",
+        "model",
+        "prompt_template",
+        "benchmark",
+        "research_paper",
+        "standard",
+        "regulation",
+        "policy",
+        "contract",
+        "adr",
+        "requirement",
+        "test_suite",
+        "build_artifact",
+        "runtime_observation",
+        "evidence_record",
+        "archive_item",
+        "preservation_package",
+        "dashboard",
+        "report"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 8000
+    },
+    "discipline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary",
+        "secondary"
+      ],
+      "properties": {
+        "primary": {
+          "enum": [
+            "CSSE",
+            "DSIE",
+            "GRRE"
+          ]
+        },
+        "secondary": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CSSE",
+              "DSIE",
+              "GRRE"
+            ]
+          }
+        },
+        "subdomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_type",
+        "owner_id"
+      ],
+      "properties": {
+        "owner_type": {
+          "enum": [
+            "person_role",
+            "team",
+            "organization",
+            "system",
+            "unknown"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "steward_role": {
+          "type": "string"
+        }
+      }
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED",
+        "UNKNOWN"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "LICENSED",
+        "PERMISSION_RECORDED",
+        "PUBLIC_DOMAIN_CONFIRMED",
+        "RESTRICTED",
+        "UNKNOWN",
+        "PROHIBITED"
+      ]
+    },
+    "lifecycle_state": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "FACT",
+        "CLAIM",
+        "INFERENCE",
+        "HYPOTHESIS",
+        "FORECAST",
+        "ADVOCACY",
+        "UNKNOWN"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "CURRENT",
+        "STALE",
+        "FAILED",
+        "UNKNOWN"
+      ]
+    },
+    "schema_ref": {
+      "type": "string",
+      "format": "uri"
+    },
+    "format": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modified_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_verified_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "content_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "lineage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relation",
+          "asset_id"
+        ],
+        "properties": {
+          "relation": {
+            "enum": [
+              "DERIVED_FROM",
+              "GENERATED_BY",
+              "TRANSFORMED_BY",
+              "DEPENDS_ON",
+              "IMPLEMENTS",
+              "VALIDATES",
+              "SUPERSEDES",
+              "PRESERVED_AS",
+              "CITES"
+            ]
+          },
+          "asset_id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observed_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "measurement_source": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "MEASURED",
+            "ESTIMATED",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "completeness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "validity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "consistency": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "uniqueness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "timeliness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "lineage_coverage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "integrity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "fitness_for_purpose": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "assessed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "method_version": {
+          "type": "string"
+        },
+        "not_measured": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collector",
+        "transform_version",
+        "collected_at"
+      ],
+      "properties": {
+        "collector": {
+          "type": "string"
+        },
+        "collector_version": {
+          "type": "string"
+        },
+        "transform_version": {
+          "type": "string"
+        },
+        "collected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_snapshot_digest": {
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "evidence_uris": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "retention_class": {
+      "enum": [
+        "operational",
+        "research",
+        "security",
+        "legal_hold",
+        "preservation",
+        "unknown"
+      ]
+    },
+    "jurisdiction_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "supersedes_asset_id": {
+      "type": "string"
+    }
+  }
+}

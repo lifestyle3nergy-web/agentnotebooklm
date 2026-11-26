@@ -1,0 +1,31 @@
+name: Archive Registry Validation
+
+on:
+  pull_request:
+    paths:
+      - "archive/**"
+      - ".github/workflows/archive-registry-validate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "archive/**"
+      - ".github/workflows/archive-registry-validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: archive-registry-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate archive contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Validate JSON registry and policy invariants
+        run: node archive/scripts/validate-registry.mjs

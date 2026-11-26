@@ -1,0 +1,204 @@
+{
+  "inventory_id": "twgt.connected-source-inventory",
+  "version": "1.0.0",
+  "status": "seeded_unverified",
+  "entries": [
+    {
+      "source_id": "SRC-GITHUB-ORG",
+      "provider": "github",
+      "source_kind": "repository_host",
+      "scope": "lifestyle3nergy-web repositories",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "read_only_api",
+      "data_classes": [
+        "repository",
+        "source_file",
+        "pull_request",
+        "review",
+        "workflow_run",
+        "commit",
+        "release",
+        "schema",
+        "workflow"
+      ],
+      "authority": "GitHub remains authoritative for repository and review state.",
+      "verification": "OBSERVED_IN_PRIOR_RECONNAISSANCE"
+    },
+    {
+      "source_id": "SRC-GMAIL-GIT-REVIEWS",
+      "provider": "gmail",
+      "source_kind": "mailbox_label",
+      "scope": "git reviews label",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "read_only_oauth_required_for_service",
+      "data_classes": [
+        "message_metadata",
+        "review_notification",
+        "repository_reference",
+        "workflow_reference"
+      ],
+      "authority": "Gmail remains authoritative for mailbox messages; public archive must not store private message/thread IDs or raw email.",
+      "verification": "PARTIAL_SCAN_ONLY"
+    },
+    {
+      "source_id": "SRC-INTERNET-ARCHIVE",
+      "provider": "internet_archive",
+      "source_kind": "digital_archive",
+      "scope": "Public item metadata and approved preservation packages",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "read_only_public_metadata_first",
+      "data_classes": [
+        "archive_item",
+        "file_manifest",
+        "preservation_event",
+        "rights_metadata"
+      ],
+      "authority": "Internet Archive remains authoritative for its item metadata and task state.",
+      "verification": "DOCUMENTATION_REVIEWED"
+    },
+    {
+      "source_id": "SRC-COCHAT-RESEARCH",
+      "provider": "cochat",
+      "source_kind": "scholarly_research",
+      "scope": "CrossRef, Semantic Scholar, arXiv, PubMed, OpenAlex and related scholarly metadata",
+      "connector_state": "CONNECTED_FOR_CURRENT_CHAT_ONLY",
+      "ingestion_mode": "research_lookup_and_citation_verification",
+      "data_classes": [
+        "research_paper",
+        "citation",
+        "author",
+        "venue",
+        "dataset",
+        "benchmark"
+      ],
+      "authority": "Publisher, DOI registration agency and repository records remain authoritative for bibliographic and version facts.",
+      "verification": "TOOL_USED_IN_PRIOR_RESEARCH"
+    },
+    {
+      "source_id": "SRC-TWGT-REPOS",
+      "provider": "github",
+      "source_kind": "engineering_repository_federation",
+      "scope": "TWGT repositories and subprojects",
+      "connector_state": "PARTIAL",
+      "ingestion_mode": "read_only_inventory",
+      "data_classes": [
+        "repository",
+        "adr",
+        "schema",
+        "policy",
+        "agent",
+        "workflow",
+        "evidence",
+        "runtime_observation"
+      ],
+      "authority": "Each repository owns its files, contracts and release history.",
+      "verification": "REPOSITORY_SET_PARTIALLY_OBSERVED"
+    },
+    {
+      "source_id": "SRC-WIKIPEDIA",
+      "provider": "wikimedia_mediawiki",
+      "source_kind": "encyclopedia_and_reference",
+      "scope": "Engineering, computer science, mathematics, data, security and technology concept pages",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "public_read_only_api",
+      "data_classes": [
+        "reference_article",
+        "concept",
+        "category",
+        "revision_metadata",
+        "citation_link"
+      ],
+      "authority": "Wikipedia revision history and cited primary sources; article content is secondary reference material.",
+      "verification": "CONNECTOR_NOT_IMPLEMENTED",
+      "policy": "Store page title, page ID, revision ID, revision timestamp, canonical URL, categories and cited sources; do not treat page text as primary proof."
+    },
+    {
+      "source_id": "SRC-DEEPWIKI",
+      "provider": "deepwiki",
+      "source_kind": "repository_documentation_and_codebase_explanation",
+      "scope": "Public GitHub/GitLab repositories selected for engineering research",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "manual_or_supported_public_interface_read_only",
+      "data_classes": [
+        "repository_overview",
+        "architecture_explanation",
+        "source_file_reference",
+        "dependency_map",
+        "generated_diagram",
+        "research_answer"
+      ],
+      "authority": "Underlying source repository and commit are authoritative; DeepWiki explanations are derived and must be corroborated against code.",
+      "verification": "CONNECTOR_NOT_IMPLEMENTED",
+      "policy": "Capture repository URL, indexed commit/time where exposed, DeepWiki page URL, cited source files and exact commit links; label generated explanations INFERENCE until verified."
+    },
+    {
+      "source_id": "SRC-ARXIV",
+      "provider": "arxiv",
+      "source_kind": "scholarly_preprint_repository",
+      "scope": "Computer science and engineering categories including cs.SE, cs.DC, cs.DB, cs.IR, cs.AI, cs.CL, cs.CR, cs.NI, cs.SY and eess",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "public_api_read_only",
+      "data_classes": [
+        "research_paper",
+        "abstract",
+        "author",
+        "version",
+        "category",
+        "journal_reference",
+        "doi",
+        "citation"
+      ],
+      "authority": "arXiv record and version history; publisher/DOI registries for publication metadata.",
+      "verification": "SEARCH_AND_METADATA_RESEARCH_PERFORMED",
+      "policy": "Preserve arXiv ID and version separately; distinguish preprint, accepted manuscript and published version; verify DOI and retraction status where possible."
+    },
+    {
+      "source_id": "SRC-DEEPWIKI-OPEN",
+      "provider": "deepwiki_open",
+      "source_kind": "open_source_repository_analysis",
+      "scope": "DeepWiki-Open codebase and architecture",
+      "connector_state": "NOT_CONNECTED",
+      "ingestion_mode": "read_only_repository_inspection",
+      "data_classes": [
+        "software_repository",
+        "architecture",
+        "rag_pipeline",
+        "ingestion_workflow",
+        "source_file_reference"
+      ],
+      "authority": "Upstream source repository, pinned commit, tests and documentation.",
+      "verification": "PUBLIC_DEEPWIKI_PAGES_OBSERVED",
+      "policy": "Treat generated wiki content as navigation aid; independently inspect source files and run tests."
+    },
+    {
+      "source_id": "SRC-ENGINEERING-LIBRARIES",
+      "provider": "federated_software_ecosystem",
+      "source_kind": "engineering_library_and_documentation_catalogue",
+      "scope": "User-mentioned FOSS, developer tools, infrastructure and engineering documentation",
+      "connector_state": "PARTIAL_REFERENCE_CATALOGUE",
+      "ingestion_mode": "public_metadata_and_release_observation",
+      "data_classes": [
+        "library",
+        "framework",
+        "tool",
+        "service",
+        "documentation",
+        "package",
+        "repository",
+        "license",
+        "release",
+        "dependency"
+      ],
+      "authority": "Upstream project repositories, release registries and official documentation.",
+      "verification": "SEE_ENGINEERING_LIBRARY_CATALOG",
+      "policy": "Capture license, maintenance/release cadence, supported versions, security advisories, provenance and dependency metadata before adoption."
+    }
+  ],
+  "inventory_rules": [
+    "Do not infer connected status from a URL alone.",
+    "Record connector scopes and last successful observation.",
+    "Never store credential values or secret-bearing environment output.",
+    "Every new source requires owner, purpose, permitted operations, data classes, jurisdiction, retention and offboarding plan.",
+    "A source can be catalogued even when disconnected; mark its observation and connector state accurately."
+  ]
+}
