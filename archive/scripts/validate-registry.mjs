@@ -10,7 +10,8 @@ const [registry, agents, schema] = await Promise.all(
 
 const errors = [];
 const allowedEvidenceHosts = new Set(["github.com", "app.cochat.ai", "arxiv.org", "doi.org"]);
-const statuses = new Set(["OBSERVED", "VERIFIED", "HELD", "UNKNOWN"]);\nconst evidenceClasses = new Set(["FACT", "CLAIM", "INFERENCE", "HYPOTHESIS", "FORECAST", "ADVOCACY", "UNKNOWN"]);
+const statuses = new Set(["OBSERVED", "VERIFIED", "HELD", "UNKNOWN"]);
+const evidenceClasses = new Set(["FACT", "CLAIM", "INFERENCE", "HYPOTHESIS", "FORECAST", "ADVOCACY", "UNKNOWN"]);
 const ids = new Set();
 
 if (registry.registry_version !== "1.0.0") errors.push("unsupported registry_version");
@@ -21,7 +22,8 @@ for (const [index, item] of (registry.repositories ?? []).entries()) {
     if (typeof item[key] !== "string" || item[key].length === 0) errors.push(`repositories[${index}].${key} is required`);
   }
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(item.repository ?? "")) errors.push(`repositories[${index}] has invalid repository identity`);
-  if (!statuses.has(item.status)) errors.push(`repositories[${index}] has invalid status`);\n  if (!evidenceClasses.has(item.evidence_class)) errors.push(`repositories[${index}] has invalid evidence_class`);
+  if (!statuses.has(item.status)) errors.push(`repositories[${index}] has invalid status`);
+  if (!evidenceClasses.has(item.evidence_class)) errors.push(`repositories[${index}] has invalid evidence_class`);
   try {
     const url = new URL(item.evidence_url);
     if (url.protocol !== "https:" || !allowedEvidenceHosts.has(url.hostname)) errors.push(`repositories[${index}] has unapproved evidence URL host`);
